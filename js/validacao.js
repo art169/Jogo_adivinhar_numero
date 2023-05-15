@@ -1,3 +1,5 @@
+let auxBatata = null;
+
 function validar (chute) {
     const numero = +chute;
 
@@ -35,8 +37,58 @@ function validar (chute) {
         `;
     } else if (numero > numeroAleatorio) {
         elementoChute.innerHTML += `<div>O número secreto é menor <i class="fa-sharp fa-solid fa-arrow-down"></i></div>`
+
+        if (auxBatata != null) {
+            if (Math.abs(numero - numeroAleatorio) < auxBatata) {
+                elementoChute.innerHTML += `<div>ESQUENTOU!</div>`
+            } else {
+                elementoChute.innerHTML += `<div>ESFRIOU!</div>`
+            }
+        }
+
+        auxBatata = Math.abs(numero - numeroAleatorio);
+
+        //regras baseadas em range
+        // if (Math.abs(numero - numeroAleatorio) <= 5) {
+        //     elementoChute.innerHTML += `<div>VOCÊ ESTÁ PELANDO!</div>`
+        // } else if (Math.abs(numero - numeroAleatorio) <= 25) {
+        //     elementoChute.innerHTML += `<div>Você está muito próximo!</div>`
+        // } else if (Math.abs(numero - numeroAleatorio) <= 100) {
+        //     elementoChute.innerHTML += `<div>Você está esquentando!</div>`
+        // } else if (Math.abs(numero - numeroAleatorio) <= 300) {
+        //     elementoChute.innerHTML += `<div>O número secreto está longe do seu chute!</div>`
+        // } else if (Math.abs(numero - numeroAleatorio) <= (maiorValor/2)) {
+        //     elementoChute.innerHTML += `<div>O número secreto está BEM longe do seu chute!</div>`
+        // } else {
+        //     elementoChute.innerHTML += `<div>Não tá nem perto!</div>`
+        // }        
     } else {
         elementoChute.innerHTML += `<div>O número secreto é maior <i class="fa-sharp fa-solid fa-arrow-up"></i></div>`
+
+        if (auxBatata != null) {
+            if (Math.abs(numero - numeroAleatorio) < auxBatata) {
+                elementoChute.innerHTML += `<div>ESQUENTOU!</div>`
+            } else {
+                elementoChute.innerHTML += `<div>ESFRIOU!</div>`
+            }
+        }
+
+        auxBatata = Math.abs(numero - numeroAleatorio);
+
+        //regras baseadas em range
+        // if (Math.abs(numero - numeroAleatorio) <= 5) {
+        //     elementoChute.innerHTML += `<div>VOCÊ ESTÁ PELANDO!</div>`
+        // } else if (Math.abs(numero - numeroAleatorio) <= 25) {
+        //     elementoChute.innerHTML += `<div>Você está muito próximo!</div>`
+        // } else if (Math.abs(numero - numeroAleatorio) <= 100) {
+        //     elementoChute.innerHTML += `<div>Você está esquentando!</div>`
+        // } else if (Math.abs(numero - numeroAleatorio) <= 300) {
+        //     elementoChute.innerHTML += `<div>O número secreto está longe do seu chute!</div>`
+        // } else if (Math.abs(numero - numeroAleatorio) <= (maiorValor/2)) {
+        //     elementoChute.innerHTML += `<div>O número secreto está BEM longe do seu chute!</div>`
+        // } else {
+        //     elementoChute.innerHTML += `<div>Não tá nem perto!</div>`
+        // }          
     }
 }
 
